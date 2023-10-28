@@ -1,0 +1,9 @@
+com\article\faces\hotel\CountryFieldTests.class
+com\article\faces\hotel\OpenNewHotelPageTests.class
+com\article\faces\hotel\NotesFieldTests.class
+com\article\faces\hotel\CityFieldTests.class
+com\article\faces\hotel\DateOfConstructionFieldTests.class
+com\article\faces\hotel\NameFieldTests.class
+com\article\faces\hotel\FullDescriptionFieldTests.class
+com\article\faces\hotel\ShortDescriptionsFieldTests.class
+com\article\faces\hotel\StarRateTests.class
