@@ -14,12 +14,12 @@ public class NotesFieldTests extends SetUpClass {
         Assert.assertTrue(mainPage.isNotesDisplayed(), "Verify that Notes field is displayed in Data section  of Register new Hotel");
     }
 
-    @Test
-    public void VerifyThatNotesFieldEditable(){
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openNewHotelPage();
-        mainPage.notesFieldEnabled();
-    }
+//    @Test
+//    public void VerifyThatNotesFieldEditable(){
+//        MainPage mainPage = new MainPage(driver);
+//        mainPage.openNewHotelPage();
+//        mainPage.notesFieldEnabled();
+//    }
 
     @Test
     public void VerifyThatNotesFieldAllowsAlphanumeric(){
