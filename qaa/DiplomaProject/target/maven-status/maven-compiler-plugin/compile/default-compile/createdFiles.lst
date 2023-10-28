@@ -1,0 +1,5 @@
+com\article\faces\hotel\utils\SetUpClass.class
+com\article\faces\hotel\utils\AllureTest.class
+com\article\faces\hotel\page\MainPage.class
+com\article\faces\hotel\utils\TestHelper.class
+com\article\faces\hotel\page\RegisterHotelPage.class

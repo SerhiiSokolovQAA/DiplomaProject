@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="20893" started-at="2023-10-28T01:40:02 EDT" finished-at="2023-10-28T01:40:23 EDT">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="20893" started-at="2023-10-28T01:40:02 EDT" finished-at="2023-10-28T01:40:23 EDT">
+      <class name="com.article.faces.hotel.NotesFieldTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2614" started-at="2023-10-28T01:40:02 EDT" finished-at="2023-10-28T01:40:05 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="SaveNewHotelWithBlankNotesField()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="SaveNewHotelWithBlankNotesField" duration-ms="2258" started-at="2023-10-28T01:40:05 EDT" finished-at="2023-10-28T01:40:07 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SaveNewHotelWithBlankNotesField -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="651" started-at="2023-10-28T01:40:07 EDT" finished-at="2023-10-28T01:40:08 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2041" started-at="2023-10-28T01:40:08 EDT" finished-at="2023-10-28T01:40:10 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="SaveNewHotelWithNotBlankNotesField()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="SaveNewHotelWithNotBlankNotesField" duration-ms="2064" started-at="2023-10-28T01:40:10 EDT" finished-at="2023-10-28T01:40:12 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SaveNewHotelWithNotBlankNotesField -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="648" started-at="2023-10-28T01:40:12 EDT" finished-at="2023-10-28T01:40:12 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2015" started-at="2023-10-28T01:40:12 EDT" finished-at="2023-10-28T01:40:14 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="VerifyThatNotesFieldAllowsAlphanumeric()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="VerifyThatNotesFieldAllowsAlphanumeric" duration-ms="951" started-at="2023-10-28T01:40:14 EDT" finished-at="2023-10-28T01:40:15 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyThatNotesFieldAllowsAlphanumeric -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="631" started-at="2023-10-28T01:40:15 EDT" finished-at="2023-10-28T01:40:16 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="1934" started-at="2023-10-28T01:40:16 EDT" finished-at="2023-10-28T01:40:18 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="VerifyThatNotesFieldEditable()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="VerifyThatNotesFieldEditable" duration-ms="793" started-at="2023-10-28T01:40:18 EDT" finished-at="2023-10-28T01:40:19 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyThatNotesFieldEditable -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="624" started-at="2023-10-28T01:40:19 EDT" finished-at="2023-10-28T01:40:19 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2091" started-at="2023-10-28T01:40:19 EDT" finished-at="2023-10-28T01:40:21 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="VerifyThatNotesFieldIsDisplayed()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="VerifyThatNotesFieldIsDisplayed" duration-ms="811" started-at="2023-10-28T01:40:21 EDT" finished-at="2023-10-28T01:40:22 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyThatNotesFieldIsDisplayed -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="637" started-at="2023-10-28T01:40:22 EDT" finished-at="2023-10-28T01:40:23 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.article.faces.hotel.NotesFieldTests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

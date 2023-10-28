@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DiplomaWorkTests">
+    <listeners>
+        <listener class-name="org.testng.TestListenerAdapter" />
+        <listener class-name="com.article.faces.hotel.utils.AllureTest" />
+    </listeners>
+    <test name="DiplomaTests">
+        <classes>
+            <class name="com.article.faces.hotel.OpenNewHotelPageTests" />
+            <class name="com.article.faces.hotel.NameFieldTests" />
+            <class name="com.article.faces.hotel.StarRateTests" />
+            <class name="com.article.faces.hotel.DateOfConstructionFieldTests" />
+            <class name="com.article.faces.hotel.CountryFieldTests" />
+            <class name="com.article.faces.hotel.CityFieldTests" />
+            <class name="com.article.faces.hotel.ShortDescriptionsFieldTests" />
+            <class name="com.article.faces.hotel.FullDescriptionFieldTests" />
+            <class name="com.article.faces.hotel.NotesFieldTests" />
+        </classes>
+    </test>
+</suite>
