@@ -20,7 +20,7 @@ public class SetUpClass {
         Properties prop = new Properties();
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            InputStream input = classLoader.getResourceAsStream("properties.properties");
+            InputStream input = classLoader.getResourceAsStream("properties/properties.properties");
             prop.load(input);
             String chromedriverPath = prop.getProperty("chromedriver.path");
             System.setProperty("webdriver.chrome.driver", chromedriverPath);

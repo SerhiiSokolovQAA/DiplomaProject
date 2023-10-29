@@ -20,17 +20,22 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.time.Duration;
 
 
 public class MainPage {
     private WebDriver driver;
     private WebDriverWait wait;
     private int selectedRating;
-    private String enteredDate;
+    public String enteredDate;
     private String selectedCountry;
-    private String selectedCity;
+    public String selectedCity;
     private String enteredShorDescription;
     private String enteredFullDescription;
+    public String formattedDate;
+    public String randomDateStr;
+    public String randomEnteredDate;
+    public String randomAlphaNumericText;
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -159,8 +164,14 @@ public class MainPage {
     @FindAll({@FindBy(xpath = "//*[@id=\"j_idt40:hotels_data\"]//td[1]")})
     public List<WebElement> fullDescriptionElements;
 
+    @FindAll({@FindBy(xpath = "//*[@id=\"j_idt40:hotels_data\"]//td[1]")})
+    public List<WebElement> nameFieldTitle;
+
     @FindBy(xpath = "//*[@id=\"j_idt40:hotels_paginator_top\"]/span[6]/span")
     public WebElement lastPageButton;
+
+    @FindBy(xpath = "//*[@id=\"add_hotel:city_label\"]")
+    public WebElement cityLabel;
 
     public WebElement getLastStarRateElement() {
         if (starRateElements.size() > 0) {
@@ -187,6 +198,14 @@ public class MainPage {
             return (WebElement) this;
         }
     }
+    public WebElement getLastNameElement() {
+        if (nameFieldTitle.size() > 0) {
+            int lastIndex = nameFieldTitle.size() - 1;
+            return nameFieldTitle.get(lastIndex);
+        } else {
+            return (WebElement) this;
+        }
+    }
 
     public WebElement getLastCityElement() {
         if (cityElements.size() > 0) {
@@ -195,6 +214,10 @@ public class MainPage {
         } else {
             return (WebElement) this;
         }
+    }
+
+    public String getSelectedCityElement() {
+        return cityLabel.getDomAttribute("label");
     }
 
     public WebElement getLastShortDescriptionElement() {
@@ -227,6 +250,8 @@ public class MainPage {
     }
 
     public boolean isRegisterNewHotelPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("title"))); // Замените на актуальный селектор элемента
         return title.isDisplayed();
     }
 
@@ -272,6 +297,9 @@ public class MainPage {
 
     public String getSelectedCountry() {
         return selectedCountry;
+    }
+    public String getRandomDateStr() {
+        return randomDateStr;
     }
 
     public void nameFieldHasAsterisk() {
@@ -340,8 +368,8 @@ public class MainPage {
         Assert.assertEquals(enteredText, randomAlphaNumericText);
     }
 
-    public void selectRandomCountryAndCityAccordingToSelectedCountry() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+    public String selectRandomCountryAndCityAccordingToSelectedCountry() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(countryField));
         countryField.click();
         int randomIndex = new Random().nextInt(countryLabel.size());
@@ -356,27 +384,29 @@ public class MainPage {
                 int randomCityIndex = new Random().nextInt(cityOfUkraine.size());
                 WebElement randomUkraineCityLabel = cityOfUkraine.get(randomCityIndex);
                 randomUkraineCityLabel.click();
-                selectedCity = randomUkraineCityLabel.getAttribute("data-label");;
+                selectedCity = randomUkraineCityLabel.getAttribute("data-label");
             }
         } else if (selectedCountry.equals("USA")) {
             if (cityOfUSA.size() > 0) {
                 int randomCityIndex = new Random().nextInt(cityOfUSA.size());
                 WebElement randomUSACityLabel = cityOfUSA.get(randomCityIndex);
                 randomUSACityLabel.click();
-                selectedCity = randomUSACityLabel.getAttribute("data-label");;
+                selectedCity = randomUSACityLabel.getAttribute("data-label");
             }
         } else {
             if (cityOfUK.size() > 0) {
                 int randomCityIndex = new Random().nextInt(cityOfUK.size());
                 WebElement randomUKCityLabel = cityOfUK.get(randomCityIndex);
                 randomUKCityLabel.click();
-                selectedCity = randomUKCityLabel.getAttribute("data-label");;
+               selectedCity = randomUKCityLabel.getAttribute("data-label");
+
             }
         }
+        return selectedCountry;
     }
 
     public void selectRandomCountryAndBlankCity() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(countryField));
         countryField.click();
         int randomIndex = new Random().nextInt(countryLabel.size());
@@ -384,9 +414,9 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(randomCountryLabel));
         randomCountryLabel.click();
     }
-    public void fillInDate(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(dateField));
+    public String fillInDate() throws ParseException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(countryField));
         LocalDate startDate = LocalDate.of(2022, 1, 1);
         LocalDate endDate = LocalDate.of(2023, 12, 31);
         Random random = new Random();
@@ -395,22 +425,25 @@ public class MainPage {
         long randomDay = startDay + random.nextInt((int) (endDay - startDay));
         LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        String randomDateStr = randomDate.format(formatter);
+        randomDateStr = randomDate.format(formatter);
         dateField.sendKeys(randomDateStr);
-        enteredDate = randomDateStr;
-
+        DateFormat inputDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat displayedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date parsedInputDate = inputDateFormat.parse(randomDateStr);
+        randomDateStr = displayedDateFormat.format(parsedInputDate);
+        return randomDateStr;
     }
     public void fillInDateWithNotValidData(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(dateField));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(countryField));
         dateField.sendKeys("abc");
         String enteredText = dateField.getAttribute("value");
         Assert.assertEquals("", enteredText);
 
     }
     public void fillInDateWithValidData(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(dateField));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(countryField));
         dateField.sendKeys("01/01/2023");
         String enteredText = dateField.getAttribute("value");
         Assert.assertEquals("01/01/2023", enteredText);
@@ -420,7 +453,7 @@ public class MainPage {
 
 
     public void SaveHotelWithIncorrectDateFormat(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(dateField));
         dateField.sendKeys("01.01.2023");
         saveButton.click();
@@ -433,7 +466,7 @@ public class MainPage {
         Assert.assertEquals(ErrorMessageTwo, "Date of Construction: " + "'231023'" + " could not be understood as a date. Example: 10/27/23");
     }
     public void SaveHotelWithBlankDateField(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(dateField));
         saveButton.click();
         String ErrorMessage = dateErrorMessage.getText();
@@ -474,9 +507,10 @@ public class MainPage {
         Assert.assertEquals(enteredText, randomAlphaNumericText);
     }
 
-    public void fillInNameField(){
-        String randomAlphaNumericText = RandomStringUtils.randomAlphanumeric(8);
+    public String fillInNameField(){
+        randomAlphaNumericText = RandomStringUtils.randomAlphanumeric(8);
         nameField.sendKeys(randomAlphaNumericText);
+        return randomAlphaNumericText;
     }
 
     public void fillInFullDescr(){
@@ -492,6 +526,8 @@ public class MainPage {
     }
     public void verifyThatCountryFieldCAnNotBeSavedBlank(){
         saveButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(countryErrorMessage));
         String ErrorMessage = countryErrorMessage.getText();
         Assert.assertEquals(ErrorMessage, "Country: Validation Error: Value is required.");
     }
@@ -521,18 +557,18 @@ public class MainPage {
     }
 
     public void verifyThatNewHotelIsSavedWithDateFieldVerification() throws ParseException {
-        DateFormat inputDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        DateFormat displayedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date parsedInputDate = inputDateFormat.parse(enteredDate);
-        String formattedDate = displayedDateFormat.format(parsedInputDate);
         saveButton.click();
         String ListMessage = listTitle.getText();
         Assert.assertEquals(ListMessage, "List of all hotels");
         if (ExpectedConditions.elementToBeClickable(lastPageButton) != null) {
             lastPageButton.click();
         }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(listTitle));
         String ratingText = getLastDateElement().getText();
-        Assert.assertEquals(ratingText, formattedDate);
+        System.out.println("Randomly selected date is " + randomDateStr);
+        System.out.println("Saved date is " + ratingText);
+        Assert.assertEquals(ratingText, randomDateStr);
     }
 
     public void verifyThatNewHotelIsSavedWithCountryVerification() throws ParseException {
@@ -572,6 +608,41 @@ public class MainPage {
         saveButton.click();
         String ListMessage = listTitle.getText();
         Assert.assertEquals(ListMessage, "List of all hotels");
+        if (ExpectedConditions.elementToBeClickable(lastPageButton) != null) {
+            lastPageButton.click();
+        }
+        String randomlyEnteredName = getLastNameElement().getText();
+        Assert.assertEquals(randomlyEnteredName, randomAlphaNumericText);
+    }
+
+    public void verifyThatNewHotelIsSavedWithFullDescription()  {
+        saveButton.click();
+        String ListMessage = listTitle.getText();
+        Assert.assertEquals(ListMessage, "List of all hotels");
+    }
+
+
+    public void verifyThatNewHotelIsSavedWithEnteredName()  {
+        saveButton.click();
+        String ListMessage = listTitle.getText();
+        Assert.assertEquals(ListMessage, "List of all hotels");
+        if (ExpectedConditions.elementToBeClickable(lastPageButton) != null) {
+            lastPageButton.click();
+        }
+        String randomlyEnteredName = getLastNameElement().getText();
+        Assert.assertEquals(randomlyEnteredName, randomAlphaNumericText);
+    }
+
+    public void verifyThatNewHotelIsSavedWithNotBlankNotesField()  {
+        saveButton.click();
+        String ListMessage = listTitle.getText();
+        Assert.assertEquals(ListMessage, "List of all hotels");
+    }
+
+    public void verifyThatNewHotelIsSavedWithBlankNotesField()  {
+        saveButton.click();
+        String ListMessage = listTitle.getText();
+        Assert.assertEquals(ListMessage, "List of all hotels");
     }
 
     public void randomlyRateHotel() {
@@ -582,7 +653,10 @@ public class MainPage {
         selectedRating = randomIndex + 1;
     }
 
-    public void verifyRatingConsistency(int getSelectedRating) {
+    public void verifyThatNewHotelIsSavedWithRating(int getSelectedRating) {
+        saveButton.click();
+        String ListMessage = listTitle.getText();
+        Assert.assertEquals(ListMessage, "List of all hotels");
         if (ExpectedConditions.elementToBeClickable(lastPageButton) != null) {
             lastPageButton.click();
         }
