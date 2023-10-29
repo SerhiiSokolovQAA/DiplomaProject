@@ -1,73 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="20893" started-at="2023-10-28T01:40:02 EDT" finished-at="2023-10-28T01:40:23 EDT">
+  <suite name="Surefire suite" duration-ms="6156" started-at="2023-10-29T14:15:48 EDT" finished-at="2023-10-29T14:15:54 EDT">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.article.faces.hotel.TestRunner@65fb9ffc]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test name="Surefire test" duration-ms="20893" started-at="2023-10-28T01:40:02 EDT" finished-at="2023-10-28T01:40:23 EDT">
-      <class name="com.article.faces.hotel.NotesFieldTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2614" started-at="2023-10-28T01:40:02 EDT" finished-at="2023-10-28T01:40:05 EDT">
+    <test name="Surefire test" duration-ms="6156" started-at="2023-10-29T14:15:48 EDT" finished-at="2023-10-29T14:15:54 EDT">
+      <class name="com.article.faces.hotel.TestRunner">
+        <test-method status="PASS" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.article.faces.hotel.TestRunner@65fb9ffc]" name="setUpClass" is-config="true" duration-ms="520" started-at="2023-10-29T14:15:48 EDT" finished-at="2023-10-29T14:15:49 EDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@613a8ee1]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="SaveNewHotelWithBlankNotesField()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="SaveNewHotelWithBlankNotesField" duration-ms="2258" started-at="2023-10-28T01:40:05 EDT" finished-at="2023-10-28T01:40:07 EDT">
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.article.faces.hotel.TestRunner@65fb9ffc]" name="runScenario" duration-ms="5480" started-at="2023-10-29T14:15:49 EDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-10-29T14:15:54 EDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that Data Section is displayed in Register new Hotel page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Add New Hotel Page]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to locate element: //*[@id='add_hotel']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.1', revision: '8e34639b11'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f00d972b-944b-4444-ac3e-68053153f4eb, findElement {using=xpath, value=//*[@id='add_hotel']}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 119.0, moz:accessibilityChecks: false, moz:buildID: 20231019122658, moz:debuggerAddress: 127.0.0.1:7155, moz:geckodriverVersion: 0.33.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 10604, moz:profile: C:\Users\forph\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:7155/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f00d972b-944b-4444-ac3e-68053153f4eb]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@id='add_hotel']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.1', revision: '8e34639b11'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f00d972b-944b-4444-ac3e-68053153f4eb, findElement {using=xpath, value=//*[@id='add_hotel']}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 119.0, moz:accessibilityChecks: false, moz:buildID: 20231019122658, moz:debuggerAddress: 127.0.0.1:7155, moz:geckodriverVersion: 0.33.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 10604, moz:profile: C:\Users\forph\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:7155/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f00d972b-944b-4444-ac3e-68053153f4eb
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy23.isDisplayed(Unknown Source)
+at com.article.faces.hotel.page.MainPage.isDataSectionVisible(MainPage.java:259)
+at com.article.faces.hotel.StepsDefinition.verifyThatDataSectionIsDisplayed(StepsDefinition.java:337)
+at ✽.Verify that Data Section is displayed(file:///C:/Users/forph/DiplomaProject/src/test/resources/features/OpenNewHotelPage.feature:16)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SaveNewHotelWithBlankNotesField -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="651" started-at="2023-10-28T01:40:07 EDT" finished-at="2023-10-28T01:40:08 EDT">
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.article.faces.hotel.TestRunner@65fb9ffc]" name="tearDownClass" is-config="true" duration-ms="78" started-at="2023-10-29T14:15:54 EDT" finished-at="2023-10-29T14:15:54 EDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2041" started-at="2023-10-28T01:40:08 EDT" finished-at="2023-10-28T01:40:10 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="SaveNewHotelWithNotBlankNotesField()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="SaveNewHotelWithNotBlankNotesField" duration-ms="2064" started-at="2023-10-28T01:40:10 EDT" finished-at="2023-10-28T01:40:12 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SaveNewHotelWithNotBlankNotesField -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="648" started-at="2023-10-28T01:40:12 EDT" finished-at="2023-10-28T01:40:12 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2015" started-at="2023-10-28T01:40:12 EDT" finished-at="2023-10-28T01:40:14 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="VerifyThatNotesFieldAllowsAlphanumeric()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="VerifyThatNotesFieldAllowsAlphanumeric" duration-ms="951" started-at="2023-10-28T01:40:14 EDT" finished-at="2023-10-28T01:40:15 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyThatNotesFieldAllowsAlphanumeric -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="631" started-at="2023-10-28T01:40:15 EDT" finished-at="2023-10-28T01:40:16 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="1934" started-at="2023-10-28T01:40:16 EDT" finished-at="2023-10-28T01:40:18 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="VerifyThatNotesFieldEditable()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="VerifyThatNotesFieldEditable" duration-ms="793" started-at="2023-10-28T01:40:18 EDT" finished-at="2023-10-28T01:40:19 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyThatNotesFieldEditable -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="624" started-at="2023-10-28T01:40:19 EDT" finished-at="2023-10-28T01:40:19 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="setUp" is-config="true" duration-ms="2091" started-at="2023-10-28T01:40:19 EDT" finished-at="2023-10-28T01:40:21 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="VerifyThatNotesFieldIsDisplayed()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="VerifyThatNotesFieldIsDisplayed" duration-ms="811" started-at="2023-10-28T01:40:21 EDT" finished-at="2023-10-28T01:40:22 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyThatNotesFieldIsDisplayed -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.article.faces.hotel.NotesFieldTests@55040f2f]" name="tearDown" is-config="true" duration-ms="637" started-at="2023-10-28T01:40:22 EDT" finished-at="2023-10-28T01:40:23 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.article.faces.hotel.NotesFieldTests -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.article.faces.hotel.TestRunner -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>
